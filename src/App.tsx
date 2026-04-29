@@ -160,10 +160,10 @@ export default function App() {
                       <div className="w-12 h-12 rounded-xl bg-[#ffb77f]/10 flex items-center justify-center text-[#ffb77f]">
                         <Zap className="w-6 h-6 fill-[#ffb77f]" />
                       </div>
-                      <h3 className="font-bold text-lg">Willpass Hảo Hạng Nhỏ/Lớn</h3>
+                      <h3 className="font-bold text-lg">Willpass Hảo Hạng Nhỏ/Lớn/Combo</h3>
                     </div>
                     <div className="flex justify-end">
-                      <span className="text-2xl font-black text-[#ffb77f]">85K/135K</span>
+                      <span className="text-2xl font-black text-[#ffb77f]">85K/135K/185K</span>
                     </div>
                   </div>
 
@@ -414,7 +414,7 @@ export default function App() {
                     <span className="text-[10px] font-black bg-[#ffb77f]/10 text-[#ffb77f] px-2 py-0.5 rounded uppercase">Kết bạn từ 5-10 acc</span>
                   </div>
                   <div className="space-y-2">
-                    {Array.from({ length: 10 }, (_, i) => `skinvin${21 + i}#999`).map((acc) => (
+                    {Array.from({ length: 10 }, (_, i) => `skinvin${31 + i}#999`).map((acc) => (
                       <div key={acc} className="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-white/5">
                         <code className="text-sm font-mono text-white/60">{acc}</code>
                         <button 
