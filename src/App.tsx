@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-type TabType = "SKIN" | "WILLPASS" | "VẬT PHẨM";
+type TabType = "SKIN" | "WILDPASS" | "VẬT PHẨM";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>("SKIN");
@@ -123,7 +123,7 @@ export default function App() {
         {/* Tabs Section */}
         <section id="pricing-section" className="mt-12 scroll-mt-20">
           <div className="flex border-b border-white/10 px-6 overflow-x-auto scrollbar-hide">
-            {(["SKIN", "WILLPASS", "VẬT PHẨM"] as TabType[]).map((tab) => (
+            {(["SKIN", "WILDPASS", "VẬT PHẨM"] as TabType[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -144,9 +144,9 @@ export default function App() {
 
           <div className="p-6 min-h-[300px]">
             <AnimatePresence mode="wait">
-              {activeTab === "WILLPASS" && (
+              {activeTab === "WILDPASS" && (
                 <motion.div 
-                  key="willpass"
+                  key="wildpass"
                   initial={{ opacity: 0, x: 10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
@@ -160,10 +160,10 @@ export default function App() {
                       <div className="w-12 h-12 rounded-xl bg-[#ffb77f]/10 flex items-center justify-center text-[#ffb77f]">
                         <Zap className="w-6 h-6 fill-[#ffb77f]" />
                       </div>
-                      <h3 className="font-bold text-lg">Willpass Hảo Hạng Nhỏ/Lớn/Combo</h3>
+                      <h3 className="font-bold text-lg">Wildpass Hảo Hạng Nhỏ/Lớn/Combo</h3>
                     </div>
                     <div className="flex justify-end">
-                      <span className="text-2xl font-black text-[#ffb77f]">85K/135K/185K</span>
+                      <span className="text-2xl font-black text-[#ffb77f]">90K/135K/185K</span>
                     </div>
                   </div>
 
@@ -172,10 +172,10 @@ export default function App() {
                       <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white/40">
                         <CreditCard className="w-6 h-6" />
                       </div>
-                      <h3 className="font-bold text-lg">Willpass Thường Nhỏ/Lớn</h3>
+                      <h3 className="font-bold text-lg">Wildpass Thường Nhỏ/Lớn</h3>
                     </div>
                     <div className="flex justify-end">
-                      <span className="text-2xl font-black text-white/60">60K/90K</span>
+                      <span className="text-2xl font-black text-white/60">75K/85K</span>
                     </div>
                   </div>
                 </motion.div>
@@ -414,7 +414,7 @@ export default function App() {
                     <span className="text-[10px] font-black bg-[#ffb77f]/10 text-[#ffb77f] px-2 py-0.5 rounded uppercase">Kết bạn từ 5-10 acc</span>
                   </div>
                   <div className="space-y-2">
-                    {Array.from({ length: 10 }, (_, i) => `skinvin${31 + i}#999`).map((acc) => (
+                    {Array.from({ length: 10 }, (_, i) => `skinv${String(i + 1).padStart(2, "0")}#999`).map((acc) => (
                       <div key={acc} className="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-white/5">
                         <code className="text-sm font-mono text-white/60">{acc}</code>
                         <button 
