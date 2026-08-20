@@ -519,7 +519,7 @@ export default function App() {
                   </div>
 
                   <div className="space-y-2">
-                    {Array.from({ length: 10 }, (_, i) => `skinv${String(i + 1).padStart(2, "0")}#999`).map((acc) => (
+                    {Array.from({ length: 10 }, (_, i) => `skinv${i + 11}#999`).map((acc) => (
                       <div key={acc} className="flex items-center justify-between bg-[#14203b] px-4 py-3 rounded-xl border border-[#2b3d68]">
                         <code className="text-xs font-mono text-[#f7c768] font-[900]">{acc}</code>
                         <button 
