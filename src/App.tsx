@@ -5,7 +5,7 @@ import {
   CheckCircle2, 
   MessageCircle, 
   MessageSquare,
-  QrCode, 
+  Users, 
   Copy, 
   X, 
   Zap, 
@@ -147,14 +147,44 @@ export default function App() {
         {/* Action Button: CÁCH MUA */}
         <section>
           <motion.button 
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.98 }}
+            animate={{ 
+              scale: [1, 1.025, 1],
+              boxShadow: [
+                "0 0 0px rgba(247, 199, 104, 0.1), 0 10px 25px -5px rgba(0, 0, 0, 0.3)",
+                "0 0 25px rgba(247, 199, 104, 0.45), 0 15px 30px -5px rgba(247, 199, 104, 0.2)",
+                "0 0 0px rgba(247, 199, 104, 0.1), 0 10px 25px -5px rgba(0, 0, 0, 0.3)"
+              ]
+            }}
+            transition={{ 
+              duration: 2.4, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setIsModalOpen(true)}
-            className="w-full bg-[#1a284c] hover:bg-[#20315c] border border-[#2b3d68] text-[#fff7d6] font-[900] text-xl py-4 rounded-[22px] flex items-center justify-center gap-2.5 shadow-xl transition-all group"
+            className="w-full relative overflow-hidden bg-gradient-to-r from-[#1a284c] via-[#243766] to-[#1a284c] border-2 border-[#f7c768]/70 text-[#fff7d6] font-[900] text-xl py-4 rounded-[22px] flex items-center justify-center gap-3 shadow-xl transition-all group"
           >
-            <span>CÁCH MUA</span>
-            <div className="w-6 h-6 rounded-full bg-[#f7c768] text-[#0e182e] flex items-center justify-center font-[900] text-sm group-hover:rotate-12 transition-transform">
-              ?
+            {/* Animated Shimmer Sweep */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: "250%" }}
+              transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut", repeatDelay: 0.8 }}
+              className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 pointer-events-none"
+            />
+
+            <span className="tracking-wide">HƯỚNG DẪN CÁCH MUA</span>
+
+            {/* Glowing & Pulsing Badge Icon */}
+            <div className="relative flex items-center justify-center">
+              <motion.div 
+                animate={{ scale: [1, 1.6, 1], opacity: [0.7, 0, 0.7] }}
+                transition={{ repeat: Infinity, duration: 1.6, ease: "easeOut" }}
+                className="absolute inset-0 rounded-full bg-[#f7c768]"
+              />
+              <div className="w-7 h-7 rounded-full bg-[#f7c768] text-[#0e182e] flex items-center justify-center font-[900] text-sm relative z-10 shadow-md group-hover:rotate-12 transition-transform">
+                ?
+              </div>
             </div>
           </motion.button>
         </section>
@@ -358,35 +388,55 @@ export default function App() {
         {/* Community Section */}
         <section id="community-section" className="pt-2 scroll-mt-24">
           <div className="bg-[#1a284c] border border-[#2b3d68] p-6 md:p-8 rounded-[28px] flex flex-col items-center text-center space-y-5 shadow-2xl relative overflow-hidden">
-            <div className="space-y-1">
+            <div className="space-y-2">
               <h2 className="text-xl md:text-2xl font-[900] uppercase tracking-tight text-[#fff7d6]">
-                NHÓM GẦN 1K THÀNH VIÊN
+                THAM GIA CỘNG ĐỒNG
               </h2>
-              <p className="text-xs text-[#8da5d3] font-[800]">
-                Nhận thông báo sớm nhất về các đợt giảm giá skin và giveaway.
+              <p className="text-xs md:text-sm text-[#8da5d3] font-[800] leading-relaxed max-w-sm">
+                Tham gia cộng đồng của Vin WildRift để nhận các thông báo về giveaway skin và giảm giá mới nhất
               </p>
             </div>
 
-            <div className="w-44 h-44 bg-white p-2.5 rounded-2xl relative group shadow-xl">
-              <img 
-                src="https://lh3.googleusercontent.com/d/1Cj2fLX1N1" 
-                alt="Zalo QR Code" 
-                className="w-full h-full object-contain"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://zalo.me/g/ncqsna410";
-                }}
-              />
-              <div className="absolute inset-0 border-2 border-[#f7c768]/40 pointer-events-none rounded-2xl" />
-            </div>
-
-            <motion.button 
+            <motion.a 
+              animate={{ 
+                scale: [1, 1.025, 1],
+                boxShadow: [
+                  "0 0 0px rgba(0, 132, 255, 0.2), 0 8px 20px -4px rgba(0, 132, 255, 0.2)",
+                  "0 0 25px rgba(0, 198, 255, 0.55), 0 12px 25px -4px rgba(0, 198, 255, 0.35)",
+                  "0 0 0px rgba(0, 132, 255, 0.2), 0 8px 20px -4px rgba(0, 132, 255, 0.2)"
+                ]
+              }}
+              transition={{ 
+                duration: 2.2, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => window.open("https://zalo.me/g/ncqsna410", "_blank")}
-              className="w-full bg-[#f7c768] hover:bg-[#ffe5a3] text-[#0e182e] font-[900] py-4 rounded-[22px] uppercase tracking-widest text-xs shadow-lg shadow-[#f7c768]/10 transition-colors"
+              href="https://www.messenger.com/channel/61576491436685"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full relative overflow-hidden bg-gradient-to-r from-[#0084FF] via-[#00A3FF] to-[#00C6FF] hover:brightness-110 text-white font-[900] py-4 px-6 rounded-[22px] uppercase tracking-wider text-sm shadow-lg transition-all flex items-center justify-center gap-2.5 border-t border-white/30 group"
             >
-              QUÉT ĐỂ THAM GIA
-            </motion.button>
+              {/* Shimmer Light Sweep */}
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: "250%" }}
+                transition={{ repeat: Infinity, duration: 2.6, ease: "easeInOut", repeatDelay: 0.6 }}
+                className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 pointer-events-none"
+              />
+
+              <div className="relative flex items-center justify-center">
+                <motion.div 
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeOut" }}
+                  className="absolute inset-0 rounded-full bg-white/40"
+                />
+                <MessageCircle className="w-5 h-5 fill-white text-white relative z-10 group-hover:scale-110 group-hover:-rotate-12 transition-transform" />
+              </div>
+              
+              <span className="relative z-10">THAM GIA NGAY</span>
+            </motion.a>
           </div>
         </section>
 
@@ -445,7 +495,7 @@ export default function App() {
               activeNav === "JOIN" ? "text-[#f7c768]" : "text-[#6781b4] hover:text-[#8ea8d9]"
             }`}
           >
-            <QrCode className="w-5 h-5" />
+            <Users className="w-5 h-5" />
             <span className="text-[10px] font-[900] uppercase tracking-wider">JOIN</span>
           </button>
         </nav>
